@@ -1,0 +1,95 @@
+array(5) { ["LMI_PAYMENT_NO"]=> string(1) "0" ["LMI_SYS_INVS_NO"]=> string(3) "226" ["LMI_SYS_TRANS_NO"]=> string(3) "297" ["LMI_SYS_TRANS_DATE"]=> string(17) "20150706 13:29:48" ["LMI_LANG"]=> string(5) "ru-RU" } array(34) { ["REDIRECT_STATUS"]=> string(3) "200" ["HTTP_HOST"]=> string(17) "bananza.cyborg.su" ["HTTP_USER_AGENT"]=> string(72) "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0" ["HTTP_ACCEPT"]=> string(63) "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" ["HTTP_ACCEPT_LANGUAGE"]=> string(35) "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3" ["HTTP_ACCEPT_ENCODING"]=> string(13) "gzip, deflate" ["HTTP_COOKIE"]=> string(384) "_csrf=5512e2f41c0ccca531d4869c8896452e82462755a86b428bb77de671162afc13a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22mc-mmgycaQw31-bYF74_IXf3mKgkdGWE%22%3B%7D; PHPSESSID=eqkcdlif6ii4j8nuepk5sb80k4; _identity=1c7acd086e5e9c6cf4f714d489557df076dd78aff6fc353511e6dbf81410b569a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B1%2Cnull%2C2592000%5D%22%3B%7D" ["HTTP_CONNECTION"]=> string(10) "keep-alive" ["CONTENT_TYPE"]=> string(33) "application/x-www-form-urlencoded" ["CONTENT_LENGTH"]=> string(3) "113" ["PATH"]=> string(60) "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" ["SERVER_SIGNATURE"]=> string(78) "
+Apache/2.4.10 (Debian) Server at bananza.cyborg.su Port 80
+" ["SERVER_SOFTWARE"]=> string(22) "Apache/2.4.10 (Debian)" ["SERVER_NAME"]=> string(17) "bananza.cyborg.su" ["SERVER_ADDR"]=> string(13) "192.168.1.100" ["SERVER_PORT"]=> string(2) "80" ["REMOTE_ADDR"]=> string(11) "192.168.1.1" ["DOCUMENT_ROOT"]=> string(20) "/var/www/bananza/web" ["REQUEST_SCHEME"]=> string(4) "http" ["CONTEXT_PREFIX"]=> string(0) "" ["CONTEXT_DOCUMENT_ROOT"]=> string(20) "/var/www/bananza/web" ["SERVER_ADMIN"]=> string(19) "webmaster@localhost" ["SCRIPT_FILENAME"]=> string(30) "/var/www/bananza/web/index.php" ["REMOTE_PORT"]=> string(5) "57039" ["REDIRECT_URL"]=> string(17) "/payment/success/" ["GATEWAY_INTERFACE"]=> string(7) "CGI/1.1" ["SERVER_PROTOCOL"]=> string(8) "HTTP/1.1" ["REQUEST_METHOD"]=> string(4) "POST" ["QUERY_STRING"]=> string(0) "" ["REQUEST_URI"]=> string(17) "/payment/success/" ["SCRIPT_NAME"]=> string(10) "/index.php" ["PHP_SELF"]=> string(10) "/index.php" ["REQUEST_TIME_FLOAT"]=> float(1436178955.299) ["REQUEST_TIME"]=> int(1436178955) }
+
+array(5) {
+  ["LMI_PAYMENT_NO"]=&gt;
+  string(1) "0"
+  ["LMI_SYS_INVS_NO"]=&gt;
+  string(3) "226"
+  ["LMI_SYS_TRANS_NO"]=&gt;
+  string(3) "297"
+  ["LMI_SYS_TRANS_DATE"]=&gt;
+  string(17) "20150706 13:29:48"
+  ["LMI_LANG"]=&gt;
+  string(5) "ru-RU"
+}
+array(34) {
+  ["REDIRECT_STATUS"]=&gt;
+  string(3) "200"
+  ["HTTP_HOST"]=&gt;
+  string(17) "bananza.cyborg.su"
+  ["HTTP_USER_AGENT"]=&gt;
+  string(72) "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0"
+  ["HTTP_ACCEPT"]=&gt;
+  string(63) "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  ["HTTP_ACCEPT_LANGUAGE"]=&gt;
+  string(35) "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3"
+  ["HTTP_ACCEPT_ENCODING"]=&gt;
+  string(13) "gzip, deflate"
+  ["HTTP_COOKIE"]=&gt;
+  string(384) "_csrf=5512e2f41c0ccca531d4869c8896452e82462755a86b428bb77de671162afc13a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22mc-mmgycaQw31-bYF74_IXf3mKgkdGWE%22%3B%7D; PHPSESSID=eqkcdlif6ii4j8nuepk5sb80k4; _identity=1c7acd086e5e9c6cf4f714d489557df076dd78aff6fc353511e6dbf81410b569a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B1%2Cnull%2C2592000%5D%22%3B%7D"
+  ["HTTP_CONNECTION"]=&gt;
+  string(10) "keep-alive"
+  ["CONTENT_TYPE"]=&gt;
+  string(33) "application/x-www-form-urlencoded"
+  ["CONTENT_LENGTH"]=&gt;
+  string(3) "113"
+  ["PATH"]=&gt;
+  string(60) "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  ["SERVER_SIGNATURE"]=&gt;
+  string(78) "<address>Apache/2.4.10 (Debian) Server at bananza.cyborg.su Port 80</address>
+"
+  ["SERVER_SOFTWARE"]=&gt;
+  string(22) "Apache/2.4.10 (Debian)"
+  ["SERVER_NAME"]=&gt;
+  string(17) "bananza.cyborg.su"
+  ["SERVER_ADDR"]=&gt;
+  string(13) "192.168.1.100"
+  ["SERVER_PORT"]=&gt;
+  string(2) "80"
+  ["REMOTE_ADDR"]=&gt;
+  string(11) "192.168.1.1"
+  ["DOCUMENT_ROOT"]=&gt;
+  string(20) "/var/www/bananza/web"
+  ["REQUEST_SCHEME"]=&gt;
+  string(4) "http"
+  ["CONTEXT_PREFIX"]=&gt;
+  string(0) ""
+  ["CONTEXT_DOCUMENT_ROOT"]=&gt;
+  string(20) "/var/www/bananza/web"
+  ["SERVER_ADMIN"]=&gt;
+  string(19) "webmaster@localhost"
+  ["SCRIPT_FILENAME"]=&gt;
+  string(30) "/var/www/bananza/web/index.php"
+  ["REMOTE_PORT"]=&gt;
+  string(5) "57039"
+  ["REDIRECT_URL"]=&gt;
+  string(17) "/payment/success/"
+  ["GATEWAY_INTERFACE"]=&gt;
+  string(7) "CGI/1.1"
+  ["SERVER_PROTOCOL"]=&gt;
+  string(8) "HTTP/1.1"
+  ["REQUEST_METHOD"]=&gt;
+  string(4) "POST"
+  ["QUERY_STRING"]=&gt;
+  string(0) ""
+  ["REQUEST_URI"]=&gt;
+  string(17) "/payment/success/"
+  ["SCRIPT_NAME"]=&gt;
+  string(10) "/index.php"
+  ["PHP_SELF"]=&gt;
+  string(10) "/index.php"
+  ["REQUEST_TIME_FLOAT"]=&gt;
+  float(1436178955.299)
+  ["REQUEST_TIME"]=&gt;
+  int(1436178955)
+}
+
+
+
+
+    <title>Success</title>
+
+
+<p>Платеж был выполнен.</p>

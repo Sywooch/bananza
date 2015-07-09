@@ -1,0 +1,29 @@
+.navbar-container {
+    background: #6a8189;
+    /* color: #fff; */
+}
+
+a {
+    color: #fff;
+}
+
+.navbar-item {
+    color: #fff;
+}
+
+a.navbar-brand {
+    color: #fff;
+}
+
+ul.navbar-nav > li > a.navbar-nav {
+    color: #fff;
+}
+
+ul.navbar-nav > li > a.navbar-nav:visited {
+    color: #fff;
+}
+
+
+ul.navbar-nav > li {
+    color: #fff;
+}
