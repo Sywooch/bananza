@@ -181,8 +181,8 @@ $customer->link('order', $order); //automatically saved into database
         $postData = Yii::$app->request->post();
         if ( !empty($postData) )
         {
-            var_dump($postData);
-            $Order->load($postData);
+            // var_dump($postData);
+            // $Order->load($postData);
             // var_dump($Order->app);
             // die();
 
