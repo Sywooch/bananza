@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'app_id',
             // 'vote_mark_id',
             // 'ref_link',
-            'name',
+            'app.name',
             'description:ntext',
             // 'icon_filename',
             // 'total_users',

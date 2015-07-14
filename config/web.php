@@ -64,6 +64,20 @@ $config = [
                 ],
             ],
         ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [],
+                ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js'=>[]
+                ],
+                'yii\web\JqueryAsset' => [
+                    'js'=>[]
+                ],
+
+            ],
+        ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,

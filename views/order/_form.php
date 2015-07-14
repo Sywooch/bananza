@@ -26,7 +26,12 @@ use app\models\Order;
 
 <?php // echo $form->field($model, 'uploadFile')->fileInput() ?>
 
+
+
 <?php $countryList = ArrayHelper::map(\app\models\Country::find()->orderBy('id')->all(), 'id', 'name') ?>
+<?php// echo $form->field($Order, 'countries')->checkboxList($countryList, ArrayHelper::map($Order->countries, 'id', 'id')); // CountryIncludeToOrder[] checkboxList?>
+
+<?php // var_dump($Order->countries);?>
 <?php echo $form->field($Order, 'countryIds')->checkboxList($countryList); // CountryIncludeToOrder[] checkboxList?>
 
 <?php echo $form->field($Order, 'total_users')->textInput(['value' => '10']); ?>

@@ -14,8 +14,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $user_id
  * @property integer $app_id
  * @property integer $vote_mark_id
- * @property string $name
- * @property string $total_price
+  * @property string $total_price
  * @property integer $status
  * @property string $creation_date
  * @property string $change_date
@@ -29,7 +28,6 @@ class Order extends \yii\db\ActiveRecord
 {
 
     public $countryIds = [];
-    public $goals = [];
     public $goal_id;
 
     const GOAL_DOWNLOAD = 1;
@@ -38,7 +36,9 @@ class Order extends \yii\db\ActiveRecord
 
     const STATUS_ADDED = 0; // 'Added'
     const STATUS_CONFIRMED = 1; // 'Confirmed'
-    const STATUS_COMPLETED = 2; //'Completed'
+    const STATUS_DECLINED = 2; // 'Declined'
+    const STATUS_PAUSED = 2; // 'Paused'
+    const STATUS_COMPLETED = 4; //'Completed'
 
     /**
      * @inheritdoc
@@ -68,9 +68,14 @@ class Order extends \yii\db\ActiveRecord
                 'updatedAtAttribute' => 'change_date',
                 'value' => new Expression('NOW()'),
             ],
+            /*
+            [
+                'class' => \e96\behavior\RelationalBehavior::className(), // enable behavior
+            ],
+            */
             [
                 'class' => \cornernote\linkall\LinkAllBehavior::className(),
-            ],
+            ]
         ];
     }
 
@@ -80,12 +85,13 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['app_id', 'vote_mark_id', 'name', 'total_users', 'goal_id'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
+            [['vote_mark_id', 'total_users', 'goal_id'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
             [['user_id', 'app_id', 'vote_mark_id', 'status', 'total_users'], 'integer'],
             [['total_users'], 'number', 'min' => 10],
             [['total_users'], 'default', 'value' => '10'],
             [['total_price'], 'number'],
-            [['user_id', 'creation_date', 'change_date', 'countryIds', 'ref_link', 'description'], 'safe'],
+            [['user_id', 'creation_date', 'change_date', 'countryIds', 'ref_link', 'description', 'countries'], 'safe'],
+            [['app_id', 'countries', 'app'], 'safe'],
             [['user_id', 'app_id'], 'unique', 'targetAttribute' => ['user_id', 'app_id'], 'message' => 'The combination of ID Пользователя and ID Приложения has already been taken.']
         ];
     }
@@ -100,7 +106,7 @@ class Order extends \yii\db\ActiveRecord
             'user_id' => Yii::t('order', 'user_id'),
             'app_id' => Yii::t('order', 'app_id'),
             'vote_mark_id' => Yii::t('order', 'vote_mark_id'),
-            'name' => Yii::t('order', 'name'),
+            // 'name' => Yii::t('order', 'name'),
             'description' => Yii::t('order', 'description'),
             'ref_link' => Yii::t('order', 'ref_link'),
             'total_users' => Yii::t('order', 'total_users'),
@@ -131,49 +137,17 @@ class Order extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    /*
-    public function setCountries($countryIds)
+    public function getGoalToOrders()
     {
-        return $this->hasMany(Country::className(), ['id' => 'country_id'])->via('countryIncludeToOrders');
+        return $this->hasMany(GoalToOrder::className(), ['order_id' => 'id']);
     }
-    */
-
-    /**
-     * @inheritdoc
-     */
-    /*
-    public function afterSave($insert, $changedAttributes)
-    {
-        parent::afterSave($insert, $changedAttributes);
-
-        if (!$insert) {
-            CountryIncludeToOrder::deleteAll(['order_id' => $this->id]);
-//            static::getDb()
-//                ->createCommand()
-//                ->delete('{{%product_category_assn}}', ['product_id' => $this->id])
-//                ->execute();
-        }
-
-        if (!empty($this->categoryIds)) {
-            static::getDb()
-                ->createCommand()
-                ->batchInsert(
-                    '{{%product_category_assn}}',
-                    ['product_id', 'category_id'],
-                    array_map(function ($categoryId) { return [$this->id, $categoryId]; }, $this->categoryIds)
-                )
-                ->execute();
-        }
-    }
-    */
-
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getGoalToOrders()
+    public function getGoals()
     {
-        return $this->hasMany(GoalToOrder::className(), ['order_id' => 'id']);
+        return $this->hasMany(Goal::className(), ['id' => 'goal_id'])->via('goalToOrders');
     }
 
     /**
@@ -195,6 +169,11 @@ class Order extends \yii\db\ActiveRecord
     public function setApp(App $App)
     {
         $this->app = $App;
+    }
+
+    public function setCountries($Countries)
+    {
+        $this->countries = $Countries;
     }
 
 
