@@ -12,7 +12,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,98 +24,53 @@ AppAsset::register($this);
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <style type="text/css" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></style>
-
-
     <?php $this->head() ?>
 </head>
 <body>
 
 <?php $this->beginBody() ?>
-    <div class="wrap">
-        <div class="container header-logo">
-            <img src="<?php Yii::$app->request->baseUrl ?>/img/logo.png" width="277" height="125" border="0" />
-            <img src="<?php Yii::$app->request->baseUrl ?>/img/lighting.png" width="213" height="92" border="0" />
-        </div>
 
-        <?php
-        $menuExtraItems = [];
-        if (Yii::$app->user->isGuest) {
-            $menuExtraItems[] = ['label' => 'Signup', 'url' => ['/user/signup']];
-            $menuExtraItems[] = ['label' => 'Login', 'url' => ['/user/login']];
-        } else {
-            $menuExtraItems[] = [
-                'label' => 'Logout (' . Yii::$app->user->identity->email . ')',
-                'url' => ['/user/logout'],
-                'linkOptions' => ['data-method' => 'post']
-            ];
+    <div class="container">
+        <header class="header">
 
-            $menuExtraItems[] = ['label' => 'Мои заказы', 'url' => ['/order/index'], 'items' => [
-                ['label' => 'Список заказов', 'url' => ['/order/index']],
-                ['label' => 'Создать заказ', 'url' => ['/order/create']],
-                ['label' => 'Оплатить заказ', 'url' => ['/payment']],
-            ]];
+            <?php $this->render('_menu'); ?>
 
-            $menuExtraItems[] = ['label' => 'Оплата услуг', 'url' => ['/payment/index']];
-        }
+            <div>
+                <img class="text-muted" src="<?php Yii::$app->request->baseUrl ?>/img/logo.png">
+            </div>
 
+        </header>
 
-        NavBar::begin([
-                'brandLabel' => 'Cyborg Games',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-container', // navbar-inverse navbar-fixed-top
-                ],
-                'containerOptions' => [
-                    'class' => 'navbar-item',
-                ],
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => array_merge([
-                    ['label' => Yii::t('menu', 'Home'), 'url' => ['/site/index']],
-                    ['label' => Yii::t('menu', 'Contacts'), 'url' => ['/site/contact']],
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= $content ?>
 
-                    ['label' => Yii::t('menu', 'Customer Info'), 'url' => ['/site/customer']],
-                    ['label' => Yii::t('menu', 'Executor Info'), 'url' => ['/site/executor']],
-                    ['label' => Yii::t('menu', 'FAQ'), 'url' => ['/site/faq']],
-                    // ['label' => Yii::t('menu', 'Signup'), 'url' => ['/user/signup']],
-/*
-                    ['label' => 'About', 'url' => ['/site/about']],
+        <footer class="footer">
+            <p class="pull-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">SKYPE:</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#">Email:</a>
+                    </div>
+                </div>
+            </p>
+            <p class="pull-right">&copy; Cyborg Games <?= date('Y') ?></p>
 
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-*/
-                ], $menuExtraItems),
-            ]);
-            NavBar::end();
-        ?>
-
-        <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= $content ?>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; Cyborg Games <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
+        </footer>
+    </div> <!-- /container -->
 
 <?php $this->endBody() ?>
+
+<script type="text/javascript">
+    window.jQuery || document.write('<script src="<?php Yii::$app->request->baseUrl ?>/js/jquery-1.11.3.min.js"><\/script>');
+    (typeof $.fn.modal === "function") || document.write('<script src="<?php Yii::$app->request->baseUrl ?>/js/bootstrap-3.3.5.min.js"><\/script>');
+</script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

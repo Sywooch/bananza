@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+
+    <title>Bananas</title>
+
+    <!-- Bootstrap core CSS #5cb85c -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+<style id="jsbin-css">
+html, body {
+	height: 100%;
+	background:url(img/bg.jpg) no-repeat center top scroll;
+	background-size: 100% auto;
+	padding-bottom: 50%;  
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color:#0046b2;
+	
+}
+
+.vcenter {
+  vertical-align: middle;
+  margin-top:30px;
+  color: #FFFFFF;
+  background-color:#0046b2;
+}
+
+#login-nav input { margin-bottom: 15px; }
+
+.btn {
+    text-transform: uppercase;
+}
+ 
+.btn-primary {
+	background: #0046b2;
+}
+.btn-primary:hover {
+	background: #5cb85c;
+}
+
+.btn-custom {
+  background-color: #0046b2;
+  border-color: #0046b2;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #003c99;
+  border-color: #00327f;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #0046b2;
+  border-color: #0046b2;
+}
+
+.greyColumn{
+  background-color: #c6dade;
+  color:#0099cc;
+}
+
+.whiteText{
+  color:#ffffff;
+}
+
+.topBorders{
+border-radius:10px 10px 0 0;
+-moz-border-radius:10px 10px 0 0;
+-khtml-border-radius:10px 10px 0 0;
+}
+
+.rtopBorders{
+border-radius:0 10px 0 0;
+-moz-border-radius:0 10px 0 0;
+-khtml-border-radius:0 10px 0 0;
+}
+
+.lbottomBorders{
+border-radius: 0 0 10px 0;
+-moz-border-radius: 0 0 10px 0;
+-khtml-border-radius: 0 0 10px 0;
+}
+
+.rbottomBorders{
+border-radius: 0 0 0 10px;
+-moz-border-radius: 0 0 0 10px;
+-khtml-border-radius: 0 0 0 10px;
+}
+
+.greenColumn{
+  background-color: #63d727;
+}
+</style>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+
+        <ul class="nav navbar-nav navbar-right nav-pills pull-right vcenter btn-custom">
+          <li class="active"><a class="btn btn-lg btn-custom" href="#">главная</a></li>
+          <li><a class="btn btn-lg btn-custom" href="#">ЗАКАЗЧИКУ</a></li>
+          <li><a class="btn btn-lg btn-custom" href="#">ИСПОЛНИТЕЛЮ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">ФАКИ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">РЕГИСТРАЦИЯ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">КОНТАКТЫ</a></li>
+		  <li class="dropdown"><a href="#" class="btn btn-lg btn-custom dropdown-toggle" data-toggle="dropdown">ВХОД</a>
+                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                    </div>
+                                    <div class="checkbox">
+                                       <label>
+                                       <input type="checkbox"> Remember me
+                                       </label>
+                                    </div>
+                                    <div class="form-group">
+                                       <button type="submit" class="btn btn-success btn-block">Sign in</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                           <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+                           <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
+                        </li>
+                     </ul>
+                  </li>
+        </ul>
+		<div>
+			<img class="text-muted" src="img/logo.png">
+		</div>
+        
+      </div>
+<!-- content -->
+<div class="row">
+  <div class="col-md-4 greyColumn topBorders">      
+	<h3>Продвинуть Ваше приложение</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 greyColumn rtopBorders">
+	<div class="row">
+		<div class="col-md-6 greyColumn"><img class="text-muted" src="img/staff.png"></div>
+		<div class="col-md-6 greyColumn"><dd><h3>Нужны Установки, отзывы, oценки, гео таргетигетинг? </h3>
+		</br>Заполняй заявку и готовся получать   радость от того что твое приложения  или игру увидят люди в разных странах или нескольких выбраных тобой. 
+		</br></br><button type="submit" class="btn btn-success btn-block greenColumn">Зарегистрироваться как заказчик</button>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="col-xs-6 col-rd-4 greenColumn topBorders pull-right"><h3 class="whiteText">Помогаем заработать</h3></div>
+	</div>
+  </div>
+  <div class="col-md-12 greenColumn whiteText lbottomBorders rbottomBorders">
+	<div class="row">
+		<div class="col-md-6 greenColumn lbottomBorders"><dd><h3>Зарабатывайте</h3>
+</br>Устанавливайте интересные приложения 
+на своем андроид устройстве и получайте
+за это вознаграждения. 
+		</br></br><button type="submit" class="btn btn-custom btn-block whiteText">Зарегистрироваться как исполнитель</button>
+		</div>
+		<div class="col-md-6 greenColumn rbottomBorders"><img class="text-muted" src="img/user.png"> <a href="#" alt="скачать андроид приложение"><img class="text-muted" src="img/load.png"></a></div>
+
+	</div>  
+  
+</div>  
+</div>
+<!-- // content -->
+      <div class="footer">
+	  <div class="row">
+	  <div class="col-md-4"> 
+	  <a href="#">SKYPE:</a>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-md-4"> 
+	  <a href="#">Email:</a>
+      </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <script type='text/javascript'>
+$(document).ready(function(){
+    //Handles menu drop down
+    $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+    });
+});    
+        </script>
+  </body>
+</html>
