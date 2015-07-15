@@ -1,11 +1,9 @@
-SET FOREIGN_KEY_CHECKS = 0;
-
 -- phpMyAdmin SQL Dump
 -- version 3.2.3
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 09, 2015 at 02:54 PM
+-- Generation Time: Jul 15, 2015 at 05:38 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.4.42
 
@@ -14,6 +12,27 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `apps`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `access_key`
+--
+
+CREATE TABLE IF NOT EXISTS `access_key` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `public_key` varchar(255) NOT NULL COMMENT 'Публичный ключ',
+  `private_key` mediumtext NOT NULL COMMENT 'Закрытый ключ',
+  `status` tinyint(1) NOT NULL COMMENT 'Статус',
+  `expire_date` datetime NOT NULL COMMENT 'Дата истечения ключа',
+  `creation_date` datetime NOT NULL COMMENT 'Дата создания',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `access_key`
+--
+
 
 -- --------------------------------------------------------
 
@@ -30,12 +49,17 @@ CREATE TABLE IF NOT EXISTS `app` (
   `creation_date` datetime NOT NULL COMMENT 'Дата создания',
   `change_date` datetime NOT NULL COMMENT 'Дата изменения',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Приложения' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Приложения' AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `app`
 --
 
+INSERT INTO `app` (`id`, `service`, `service_appname`, `name`, `type`, `creation_date`, `change_date`) VALUES
+(9, 'google', 'пкпу', 'купук', 0, '2015-07-13 12:34:26', '2015-07-13 12:34:26'),
+(10, 'google', 'оеон', 'ооо', 0, '2015-07-13 13:43:29', '2015-07-13 13:43:29'),
+(11, 'google', 'лгнлгн', 'лнел111', 0, '2015-07-13 14:01:30', '2015-07-13 17:58:12'),
+(12, 'google', 'hrthtr', 'ntr', 0, '2015-07-15 17:34:56', '2015-07-15 17:34:56');
 
 -- --------------------------------------------------------
 
@@ -153,12 +177,18 @@ CREATE TABLE IF NOT EXISTS `country_include_to_order` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`,`country_id`),
   KEY `country_id` (`country_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Страны, которые включены в заказ' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Страны, которые включены в заказ' AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `country_include_to_order`
 --
 
+INSERT INTO `country_include_to_order` (`id`, `order_id`, `country_id`) VALUES
+(4, 7, 2),
+(5, 7, 3),
+(6, 7, 7),
+(18, 9, 2),
+(19, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -192,17 +222,20 @@ CREATE TABLE IF NOT EXISTS `goal_to_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `order_id` int(11) NOT NULL COMMENT 'ID Заказа',
   `goal_id` int(11) NOT NULL COMMENT 'ID Цели',
-  `period_seconds` enum('0','60','3600','86400','604800') NOT NULL DEFAULT '0' COMMENT 'Время периодичности в секундах',
-  `period_value` int(11) NOT NULL DEFAULT '0' COMMENT 'Значение множителя периода',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`,`goal_id`),
   KEY `goal_id` (`goal_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Цели, которые включены в заказ' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Цели, которые включены в заказ' AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `goal_to_order`
 --
 
+INSERT INTO `goal_to_order` (`id`, `order_id`, `goal_id`) VALUES
+(1, 7, 1),
+(2, 8, 1),
+(3, 9, 1),
+(4, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -215,12 +248,14 @@ CREATE TABLE IF NOT EXISTS `order` (
   `user_id` int(11) NOT NULL COMMENT 'ID Пользователя',
   `app_id` int(11) NOT NULL COMMENT 'ID Приложения',
   `vote_mark_id` int(11) DEFAULT NULL COMMENT 'Оценка для голосования',
-  `name` varchar(255) NOT NULL COMMENT 'Название приложения',
+  `title` varchar(255) NOT NULL COMMENT 'Название приложения',
   `ref_link` varchar(255) NOT NULL COMMENT 'Ссылка для переадресации',
   `description` text NOT NULL COMMENT 'Описание заказа',
   `icon_filename` varchar(255) NOT NULL COMMENT 'Иконка',
   `total_users` int(11) NOT NULL COMMENT 'Общее количество исполнителей',
   `total_price` decimal(10,2) unsigned NOT NULL COMMENT 'Общая стоимость',
+  `period_seconds` enum('0','60','3600','86400','604800') NOT NULL COMMENT 'Время периодичности в секундах',
+  `period_value` int(11) NOT NULL COMMENT 'Значение множителя периода',
   `status` tinyint(1) NOT NULL COMMENT 'Статус выполнения',
   `creation_date` datetime NOT NULL COMMENT 'Дата создания',
   `change_date` datetime NOT NULL COMMENT 'Дата изменения',
@@ -228,12 +263,17 @@ CREATE TABLE IF NOT EXISTS `order` (
   UNIQUE KEY `user_id` (`user_id`,`app_id`),
   KEY `app_id` (`app_id`),
   KEY `vote_mark_id` (`vote_mark_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Заказы' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Заказы' AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `order`
 --
 
+INSERT INTO `order` (`id`, `user_id`, `app_id`, `vote_mark_id`, `title`, `ref_link`, `description`, `icon_filename`, `total_users`, `total_price`, `period_seconds`, `period_value`, `status`, `creation_date`, `change_date`) VALUES
+(7, 1, 9, 1, '', '', '', '', 10, 0.00, '0', 0, 0, '2015-07-13 12:34:26', '2015-07-13 12:34:26'),
+(8, 1, 10, 3, '', '', '', '', 10, 0.00, '0', 0, 0, '2015-07-13 13:43:29', '2015-07-13 13:43:29'),
+(9, 1, 11, 1, '', '', '', '', 10, 0.00, '0', 0, 0, '2015-07-13 14:01:30', '2015-07-13 17:58:12'),
+(10, 4, 12, 1, '', '', '', '', 10, 0.00, '3600', 10, 0, '2015-07-15 17:34:56', '2015-07-15 17:34:56');
 
 -- --------------------------------------------------------
 
@@ -288,14 +328,15 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`id`, `name`, `value`) VALUES
-(1, 'min_output_amount', '100');
+(1, 'min_output_amount', '100'),
+(2, 'user_key_expire_seconds', '86400');
 
 -- --------------------------------------------------------
 
@@ -402,23 +443,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(50) NOT NULL COMMENT 'Ник',
   `password` char(32) NOT NULL COMMENT 'Пароль',
   `salt` char(6) NOT NULL COMMENT 'Соль',
+  `activation_link` char(32) NOT NULL COMMENT 'MD5-часть активационной ссылки',
   `type` tinyint(1) NOT NULL COMMENT 'Тип',
   `balance` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT 'Текущий баланс в системе',
   `creation_date` datetime NOT NULL COMMENT 'Дата создания',
   `change_date` datetime NOT NULL COMMENT 'Дата изменения',
   PRIMARY KEY (`id`),
-  KEY `country_id` (`country_id`)
+  KEY `country_id` (`country_id`),
+  KEY `activation_link` (`activation_link`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Пользователи' AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `country_id`, `email`, `name`, `password`, `salt`, `type`, `balance`, `creation_date`, `change_date`) VALUES
-(1, 0, 'oleg_freedom@rambler.ru', 'Freedom', '09b4e9677ef07b721c66ab70689bc0d4', 'd7mbsx', 0, 0.00, '2015-06-18 15:43:04', '2015-06-18 15:43:04'),
-(2, 0, 'hherher@test.com', 'trtrtr', '16b50b39f99b4ae8d6e04742b5a828d7', '2js8n3', 1, 0.00, '2015-06-18 16:04:37', '2015-06-18 16:04:37'),
-(3, 0, 'hherher1@test.com', 'trtrtr', '2010fe0241b19a3e36a3342ac8261877', 'qrtq0g', 1, 0.00, '2015-06-18 16:05:21', '2015-06-18 16:05:21'),
-(4, NULL, 'test@test.com', 'TestTest', '0af229eff17ece2604be6aab5d76c434', 'yit76m', 1, 0.00, '2015-07-09 14:54:08', '2015-07-09 14:54:08');
+INSERT INTO `user` (`id`, `country_id`, `email`, `name`, `password`, `salt`, `activation_link`, `type`, `balance`, `creation_date`, `change_date`) VALUES
+(1, 0, 'oleg_freedom@rambler.ru', 'Freedom', '09b4e9677ef07b721c66ab70689bc0d4', 'd7mbsx', '', 0, 0.00, '2015-06-18 15:43:04', '2015-06-18 15:43:04'),
+(2, 0, 'hherher@test.com', 'trtrtr', '16b50b39f99b4ae8d6e04742b5a828d7', '2js8n3', '', 1, 0.00, '2015-06-18 16:04:37', '2015-06-18 16:04:37'),
+(3, 0, 'hherher1@test.com', 'trtrtr', '2010fe0241b19a3e36a3342ac8261877', 'qrtq0g', '', 1, 0.00, '2015-06-18 16:05:21', '2015-06-18 16:05:21'),
+(4, NULL, 'test@test.com', 'TestTest', '0af229eff17ece2604be6aab5d76c434', 'yit76m', '', 1, 0.00, '2015-07-09 14:54:08', '2015-07-09 14:54:08');
 
 -- --------------------------------------------------------
 
@@ -435,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `user_login` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `result` (`result`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `user_login`
@@ -449,7 +492,9 @@ INSERT INTO `user_login` (`id`, `user_id`, `ip`, `result`, `creation_date`) VALU
 (5, 1, '127.0.0.1', 0, '2015-07-08 15:29:08'),
 (6, 1, '127.0.0.1', 0, '2015-07-08 15:29:52'),
 (7, 1, '127.0.0.1', 0, '2015-07-08 17:25:19'),
-(8, 1, '127.0.0.1', 1, '2015-07-08 17:25:27');
+(8, 1, '127.0.0.1', 1, '2015-07-08 17:25:27'),
+(9, 1, '127.0.0.1', 1, '2015-07-09 15:49:50'),
+(10, 4, '127.0.0.1', 1, '2015-07-15 12:21:35');
 
 -- --------------------------------------------------------
 
@@ -533,5 +578,3 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_login`
   ADD CONSTRAINT `user_login_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-SET FOREIGN_KEY_CHECKS = 1;

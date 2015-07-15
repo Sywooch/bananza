@@ -86,11 +86,12 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             [['vote_mark_id', 'total_users', 'goal_id'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
-            [['user_id', 'app_id', 'vote_mark_id', 'status', 'total_users'], 'integer'],
+            [['user_id', 'app_id', 'vote_mark_id', 'status', 'total_users', 'period_seconds', 'period_value'], 'integer'],
+            [['period_seconds'], 'in', 'range' => ['0', '3600', '86400']],
             [['total_users'], 'number', 'min' => 10],
             [['total_users'], 'default', 'value' => '10'],
             [['total_price'], 'number'],
-            [['user_id', 'creation_date', 'change_date', 'countryIds', 'ref_link', 'description', 'countries'], 'safe'],
+            [['user_id', 'creation_date', 'change_date', 'countryIds', 'ref_link', 'description', 'period_seconds', 'period_value'], 'safe'],
             [['app_id', 'countries', 'app'], 'safe'],
             [['user_id', 'app_id'], 'unique', 'targetAttribute' => ['user_id', 'app_id'], 'message' => 'The combination of ID Пользователя and ID Приложения has already been taken.']
         ];
@@ -111,6 +112,8 @@ class Order extends \yii\db\ActiveRecord
             'ref_link' => Yii::t('order', 'ref_link'),
             'total_users' => Yii::t('order', 'total_users'),
             'total_price' => Yii::t('order', 'total_price'),
+            'period_seconds' => Yii::t('order', 'period_seconds'),
+            'period_value' => Yii::t('order', 'period_value'),
             'status' => Yii::t('order', 'status'),
             'creation_date' => Yii::t('main', 'creation_date'),
             'change_date' => Yii::t('main', 'change_date'),

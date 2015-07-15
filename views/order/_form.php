@@ -36,6 +36,10 @@ use app\models\Order;
 
 <?php echo $form->field($Order, 'total_users')->textInput(['value' => '10']); ?>
 
+<?php $periodList = [0 => 'без периода', '3600' => 'в час', '86400' => 'в сутки']; ?>
+<?php echo $form->field($Order, 'period_seconds')->dropDownList($periodList); ?>
+<?php echo $form->field($Order, 'period_value')->textInput(); ?>
+
 <?php $voteMarkList = ArrayHelper::map(\app\models\VoteMark::find()->orderBy('id')->all(), 'id', 'name') ?>
 <?php echo $form->field($Order, 'vote_mark_id')->dropDownList($voteMarkList); // , ['prompt' => ''])->label('Оценка для отзыва') ?>
 
