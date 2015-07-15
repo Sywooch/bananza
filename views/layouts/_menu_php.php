@@ -1,4 +1,7 @@
 <?php
+// use yii\bootstrap\Nav;
+use kartik\nav\NavX;
+use yii\bootstrap\NavBar;
 
 $menuExtraItems = [];
 if (Yii::$app->user->isGuest) {
@@ -6,7 +9,7 @@ if (Yii::$app->user->isGuest) {
     $menuExtraItems[] = ['label' => 'Login', 'url' => ['/user/login'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
 } else {
     $menuExtraItems[] = [
-        'label' => 'Logout (' . Yii::$app->user->identity->email . ')',
+        'label' => 'Logout', // (' . Yii::$app->user->identity->email . ')',
         'url' => ['/user/logout'],
         'linkOptions' => ['data-method' => 'post', 'class' => 'btn btn-lg btn-custom']
     ];
@@ -21,7 +24,7 @@ if (Yii::$app->user->isGuest) {
     $menuExtraItems[] = ['label' => 'Оплата услуг', 'url' => ['/payment/index'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
 }
 
-
+/*
 NavBar::begin([
     // 'brandLabel' => 'Cyborg Games',
     // 'brandUrl' => Yii::$app->homeUrl,
@@ -33,15 +36,16 @@ NavBar::begin([
         'class' => '', // 'navbar-item',
     ],
 ]);
-echo Nav::widget([
+*/
+echo NavX::widget([
     // btn btn-lg btn-custom
     'options' => ['class' => 'nav navbar-nav navbar-right nav-pills pull-right vcenter btn-custom',/* 'navbar-nav navbar-right'*/],
     'items' => array_merge([
         ['label' => Yii::t('menu', 'Home'), 'url' => ['/site/index'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
         ['label' => Yii::t('menu', 'Contacts'), 'url' => ['/site/contact'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
 
-        ['label' => Yii::t('menu', 'Customer Info'), 'url' => ['/site/customer'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
-        ['label' => Yii::t('menu', 'Executor Info'), 'url' => ['/site/executor'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
+//        ['label' => Yii::t('menu', 'Customer Info'), 'url' => ['/site/customer'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
+//        ['label' => Yii::t('menu', 'Executor Info'), 'url' => ['/site/executor'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
         ['label' => Yii::t('menu', 'FAQ'), 'url' => ['/site/faq'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']],
         // ['label' => Yii::t('menu', 'Signup'), 'url' => ['/user/signup']],
         /*
@@ -55,6 +59,6 @@ echo Nav::widget([
         */
     ], $menuExtraItems),
 ]);
-NavBar::end();
+// NavBar::end();
 
 ?>

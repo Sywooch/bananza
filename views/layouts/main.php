@@ -1,7 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -33,7 +31,7 @@ AppAsset::register($this);
     <div class="container">
         <header class="header">
 
-            <?php $this->render('_menu'); ?>
+            <?php echo $this->render('_menu_php'); ?>
 
             <div>
                 <img class="text-muted" src="<?php Yii::$app->request->baseUrl ?>/img/logo.png">
