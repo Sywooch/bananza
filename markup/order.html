@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+
+    <title>Bananas</title>
+
+    <!-- Bootstrap core CSS #5cb85c -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-slider.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+<style id="jsbin-css">
+html, body {
+	height: 100%;
+	background:url(img/bg2.jpg) no-repeat center top scroll;
+	background-size: 100% auto;
+	padding-bottom: 50%;  
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color:#61d9ff;
+	
+}
+
+.vcenter {
+  vertical-align: middle;
+  margin-top:30px;
+}
+
+.vcenter2 {
+  vertical-align: middle;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#login-nav input { margin-bottom: 15px; }
+
+.btn {
+    text-transform: uppercase;
+}
+ 
+.btn-primary {
+	background: #0046b2;
+}
+.btn-primary:hover {
+	background: #5cb85c;
+}
+
+.btn-custom {
+  background-color: #0046b2;
+  border-color: #0046b2;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #003c99;
+  border-color: #00327f;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #0046b2;
+  border-color: #0046b2;
+}
+
+.greyColumn{
+  background-color: #88bfd2;
+  color:#0099cc;
+}
+
+.whiteText{
+  color:#ffffff;
+}
+.greyText{
+  color:#566064;
+}
+
+.topBorders{
+border-radius:10px 10px 0 0;
+-moz-border-radius:10px 10px 0 0;
+-khtml-border-radius:10px 10px 0 0;
+}
+
+.rtopBorders{
+border-radius:0 10px 0 0;
+-moz-border-radius:0 10px 0 0;
+-khtml-border-radius:0 10px 0 0;
+}
+
+.bottomBorders{
+border-radius:0 0 10px 10px;
+-moz-border-radius:0 0 10px 10px;
+-khtml-border-radius:0 0 10px 10px;
+}
+
+.greenColumn{
+  background-color: #63d727;
+}
+
+.greyTextColumn{
+  background-color: #6a8189;
+}
+#ex13 {
+height: 200px;
+}
+</style>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-slider.js"></script>
+</head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+
+        <ul class="nav navbar-nav navbar-right nav-pills pull-right vcenter btn-custom">
+          <li class="active"><a class="btn btn-lg btn-custom" href="#">главная</a></li>
+          <li><a class="btn btn-lg btn-custom" href="#">ЗАКАЗЧИКУ</a></li>
+          <li><a class="btn btn-lg btn-custom" href="#">ИСПОЛНИТЕЛЮ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">ФАКИ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">РЕГИСТРАЦИЯ</a></li>
+		  <li><a class="btn btn-lg btn-custom" href="#">КОНТАКТЫ</a></li>
+		  <li class="dropdown"><a href="#" class="btn btn-lg btn-custom dropdown-toggle" data-toggle="dropdown">ВХОД</a>
+                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                    </div>
+                                    <div class="checkbox">
+                                       <label>
+                                       <input type="checkbox"> Remember me
+                                       </label>
+                                    </div>
+                                    <div class="form-group">
+                                       <button type="submit" class="btn btn-success btn-block">Sign in</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                           <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+                           <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
+                        </li>
+                     </ul>
+                  </li>
+        </ul>
+		<div>
+			<img class="text-muted" src="img/logo.png">
+		</div>
+        
+      </div>
+
+<div class="row topBorders greenColumn">
+  <div class="col-md-1 vcenter"><img class="text-muted" src="img/topStaff.png"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-1 vcenter"><h3>Привет</h3></div>
+  <div class="col-md-1 vcenter"><img class="text-muted" src="img/money.png"></div>
+  <div class="col-md-2 vcenter"><h4>Твой баланс</h4></div>
+  <div class="col-md-1 vcenter"><img class="text-muted" src="img/wallet.png"></div>
+  <div class="col-md-2 vcenter"><h4>Твой резерв</h4></div>
+  <div class="col-md-1 vcenter"><img class="text-muted" src="img/pig.png"></div>
+  <div class="col-md-2 vcenter"><h3><a href="#" class = "whiteText">Пополнить счёт</a></h3></div>
+</div>
+<div class="row greyColumn">
+	<div class="col-xs-12">
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Мои заказы</a></h4></div>
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Транзакции</a></h4></div>
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Техподдержка</a></h4></div>
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Настройки</a></h4></div>
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Партнёрка</a></h4></div>
+		<div class="col-md-2 vcenter2"><h4><a href="#" class="greyText">Выплаты</a></h4></div>
+	</div>
+</div>
+<div class="row greyTextColumn bottomBorders">
+	<div class="col-xs-12 vcenter2">
+		<a href="#" class="greyText">Сделать новый заказ</a> | 
+		<a href="#" class="greyText">Активные заказы</a> | 
+		<a href="#" class="greyText">Заказы на модерации</a> | 
+		<a href="#" class="greyText">Приостановленые</a> | 
+		<a href="#" class="greyText">Оклоненные</a> | 
+		<a href="#" class="greyText">Завершонные</a> | 
+		<a href="#" class="greyText">Черновики</a> | 
+	</div>
+</div>
+<div class="row vcenter">
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-block greenColumn"><h2>Android</h2></button></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-block greenColumn"><h2>Apple</h2></button></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-1"><button type="submit" class="btn btn-success btn-block greenColumn"><h2>$</h2></button></div>
+  <div class="col-md-1"><button type="submit" class="btn btn-success btn-block greenColumn"><h2>₴</h2></button></div>
+  <div class="col-md-1"><button type="submit" class="btn btn-success btn-block greenColumn"><h2>₽</h2></button></div>
+</div>
+<div class="row vcenter">
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-block greenColumn">Установить</button></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><button type="submit" class="btn btn-success btn-block greenColumn">Установить и оставить отзыв</button></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3">Установить и оставить отзыв+</div>
+</div>
+<div class="row vcenter">
+  <div class="col-md-1"></div>
+  <div class="col-md-3">Задание исполнителю</div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3">Задание исполнителю</div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3">Задание исполнителю</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<hr>
+	</div>
+</div>
+
+<form class="form-horizontal" role="form">
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Название приложения:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" placeholder="Название приложения">
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">ID приложения:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" placeholder="('XXXXXXXX' из https://play.google.com/store/apps/details?id=XXXXXXXX&feature...)">
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Ссылка для переадресации:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" >
+	  <p class="help-block">(Необязательное поле. Указывать если необходим переход на трекинговые ссылки. Трекинговые системы засчитывают не просто инстал, а факт запуска. Поэтому необходимо брать проверку на запуск.)</p>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Оценка для отзыва:</label>
+    <div class="col-sm-8">
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 5
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 4
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> 3
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option1"> 4 или 5
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2"> от 3 до 5
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadios" id="optionsRadios6" value="option3"> 3 или 4
+		</label>		
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Описание:</label>
+    <div class="col-sm-8">
+	  <textarea rows="3"></textarea>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Прикрепить иконку (х):</label>
+    <div class="col-sm-8">
+    <input type="file" id="exampleInputFile">
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Выберите страну:</label>
+    <div class="col-sm-8">
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Выберите заказы для исклюючения исполнителей:</label>
+    <div class="col-sm-8">
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Периодичность установок:</label>
+    <div class="col-sm-8">
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadiosPeriod" id="optionsRadios1p" value="option1" checked> в день
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadiosPeriod" id="optionsRadios2p" value="option2"> в час
+		</label>	
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Количество установок в час:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1">
+	  <p class="help-block">(Необязательное поле. Ограничение количества исполнителей в час. Например при заказе 100 исп. и ограничении 50 исп. в час - заказ выполнится минимум за 2 часа)</p>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Тип приложения:</label>
+    <div class="col-sm-8">
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadiosType" id="optionsRadios1p" value="option1"> бесплатное
+		</label>
+		<label class="radio-inline">
+        <input type="radio" name="optionsRadiosType" id="optionsRadios2p" value="option2" checked> платное
+		</label>	
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Цена за скачивание и коментарий:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1">
+	  <p class="help-block">Базовая цена для Вашего заказа от: 2 грн.Чем больше Ваша цена, тем больше исполнителей согласятся принять участие в Вашем заказе.</p>
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Цена за скачивание:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" >
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Количество исполнителей:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" >
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Общее количество исполнителей:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="input1" >
+    </div>
+</div>
+<div class="row vcenter2">
+<label for="input1" class="col-sm-4 control-label">Выберите процент скачек без отзыва:</label>
+    <div class="col-sm-8">
+      <input id="ex11" type="text" data-slider-handle="custom"/>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <label>
+          <input type="checkbox" value="">
+          Я принимаю условия Правил добавления и обработки заказов
+        </label>
+  </div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<hr>
+	</div>
+</div>
+<div class="row vcenter2">
+	<div class="col-xs-6">
+		Общая сумма:
+	</div>
+	<div class="col-xs-2"></div>
+	<div class="col-xs-2">
+		<button type="submit" class="btn btn-success btn-block greenColumn"><h2>В Работу!</h2></button>
+	</div>
+	<div class="col-xs-2"></div>
+</div>
+</form>
+      <div class="footer">
+	  <div class="row">
+	  <div class="col-md-4"> 
+	  <a href="#">SKYPE:</a>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-md-4"> 
+	  <a href="#">Email:</a>
+      </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <script type='text/javascript'>
+		
+// With JQuery
+$("#ex11").slider({step: 10, min: 0, max: 100,value:50});
+
+$(document).ready(function(){
+    //Handles menu drop down
+    $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+    });
+});    
+        </script>
+  </body>
+</html>

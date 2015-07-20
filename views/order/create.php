@@ -16,9 +16,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */
 
-$this->title = 'Create Order';
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Create';
+$this->title = Yii::t('order', 'Create Order');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('order', 'Orders'), 'url' => ['index']];
+$this->params['breadcrumbs'][] =  Yii::t('order', 'Create Order');
 ?>
 <div class="order-create">
 

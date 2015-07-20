@@ -1,25 +1,21 @@
 html, body {
     height: 100%;
-    background:url(/img/bg2.jpg) no-repeat center top scroll;
+    background:url(/img/bg.jpg) no-repeat center top scroll;
     background-size: 100% auto;
     padding-bottom: 50%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color:#61d9ff;
+    background-color:#0046b2;
 
 }
 
 .vcenter {
     vertical-align: middle;
     margin-top:30px;
-}
-
-.vcenter2 {
-    vertical-align: middle;
-    margin-top:10px;
-    margin-bottom:10px;
+    color: #FFFFFF;
+    background-color:#0046b2;
 }
 
 #login-nav input { margin-bottom: 15px; }
@@ -64,15 +60,12 @@ fieldset[disabled] .btn-custom.active {
 }
 
 .greyColumn{
-    background-color: #88bfd2;
+    background-color: #c6dade;
     color:#0099cc;
 }
 
 .whiteText{
     color:#ffffff;
-}
-.greyText{
-    color:#566064;
 }
 
 .topBorders{
@@ -87,28 +80,18 @@ fieldset[disabled] .btn-custom.active {
     -khtml-border-radius:0 10px 0 0;
 }
 
-.bottomBorders{
-    border-radius:0 0 10px 10px;
-    -moz-border-radius:0 0 10px 10px;
-    -khtml-border-radius:0 0 10px 10px;
+.lbottomBorders{
+    border-radius: 0 0 10px 0;
+    -moz-border-radius: 0 0 10px 0;
+    -khtml-border-radius: 0 0 10px 0;
+}
+
+.rbottomBorders{
+    border-radius: 0 0 0 10px;
+    -moz-border-radius: 0 0 0 10px;
+    -khtml-border-radius: 0 0 0 10px;
 }
 
 .greenColumn{
     background-color: #63d727;
-}
-
-.greyTextColumn{
-    background-color: #6a8189;
-}
-#ex13 {
-    height: 200px;
-}
-
-
-
-/** Extra changes **/
-
-.checkbox {
-    float: left;
-    padding-left: 10px;
 }

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */
 
-$this->title = 'Update Order: ' . ' ' . $Order->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->title = Yii::t('order', 'Update Order') . ': ' . ' ' . $Order->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('order', 'Orders'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $Order->id, 'url' => ['view', 'id' => $Order->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('main', 'Update');
 ?>
 <div class="order-update">
 

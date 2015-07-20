@@ -16,8 +16,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link href="<?php Yii::$app->request->baseUrl ?>/css/main.css" rel="stylesheet" />
-
+    <link href="<?php Yii::$app->request->baseUrl ?>/css/index.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -29,39 +28,39 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
 
-    <div class="container">
-        <header class="header">
+<div class="container">
+    <header class="header">
 
-            <?php echo $this->render('_menu_php'); ?>
+        <?php echo $this->render('_menu_php'); ?>
 
-            <div>
-                <img class="text-muted" src="<?php Yii::$app->request->baseUrl ?>/img/logo.png">
+        <div>
+            <img class="text-muted" src="<?php Yii::$app->request->baseUrl ?>/img/logo.png">
+        </div>
+
+    </header>
+
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= $content ?>
+
+    <footer class="footer">
+        <p class="pull-left">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#">SKYPE:</a>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#">Email:</a>
+            </div>
+        </div>
+        </p>
+        <p class="pull-right">&copy; Cyborg Games <?= date('Y') ?></p>
 
-        </header>
-
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
-
-        <footer class="footer">
-            <p class="pull-left">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="#">SKYPE:</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="#">Email:</a>
-                    </div>
-                </div>
-            </p>
-            <p class="pull-right">&copy; Cyborg Games <?= date('Y') ?></p>
-
-        </footer>
-    </div> <!-- /container -->
+    </footer>
+</div> <!-- /container -->
 
 <?php $this->endBody() ?>
 

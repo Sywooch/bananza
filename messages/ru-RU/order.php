@@ -15,4 +15,10 @@ return [
     'countryIds' => 'Требуемые страны',
     'vote_mark_id' => 'Требуемая оценка',
 
+    'Orders' => 'Заказы',
+    'Create Order' => 'Создать Заказ',
+    'Update Order' => 'Редактировать Заказ',
+    'Delete Order' => 'Удалить Заказ',
+
+
 ];

@@ -87,6 +87,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             [['vote_mark_id', 'total_users', 'goal_id'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
             [['user_id', 'app_id', 'vote_mark_id', 'status', 'total_users', 'period_seconds', 'period_value'], 'integer'],
+            [['period_value'], 'default', 'value' => 0],
             [['period_seconds'], 'in', 'range' => ['0', '3600', '86400']],
             [['total_users'], 'number', 'min' => 10],
             [['total_users'], 'default', 'value' => '10'],

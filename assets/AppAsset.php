@@ -19,7 +19,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
-        'css/main.css'
+        'css/bootstrap-slider.css',
+        // 'css/main.css'
         // 'css/site.css',
         // 'css/style.css'
     ];
@@ -31,4 +32,6 @@ class AppAsset extends AssetBundle
         // 'yii\web\YiiAsset',
         // 'yii\bootstrap\BootstrapAsset',
     ];
+
+    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 }
