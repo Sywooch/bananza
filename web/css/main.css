@@ -112,3 +112,7 @@ fieldset[disabled] .btn-custom.active {
     float: left;
     padding-left: 10px;
 }
+
+.table-striped > tbody > tr:nth-of-type(2n) {
+    background-color: #fff;
+}

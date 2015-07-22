@@ -71,6 +71,7 @@ class OrderController extends Controller
         // $Order = Order::findOne($id)->with('countries');
         $Order = Order::find()->with(['countries', 'app', 'goals'])->where(['id' => $id])->one();
         $Order->countryIds = ArrayHelper::map($Order->countries, 'id', 'id');
+        $Order->goalIds = ArrayHelper::map($Order->goals, 'id', 'id');
 
         $postData = Yii::$app->request->post();
 
@@ -88,6 +89,7 @@ class OrderController extends Controller
     private function saveOrder($postData, Order $Order )
     {
         $Order->load($postData);
+        $Order->countryIds = [];
         $Order->app->load($postData);
 
         $flagOrder = $Order->validate();
@@ -122,8 +124,7 @@ class OrderController extends Controller
                 // $Order->linkAll('countries', $CountriesInclude, $extraColumns, $unlink, $delete);
                 $Order->linkAll('countries', $CountriesInclude, $extraColumns, $unlink, $delete);
 
-                // GoalToOrder::deleteAll(['order_id' => $Order->id]);
-                $Goals = Goal::findAll(['id' => $Order->goal_id]);
+                $Goals = Goal::findAll(['id' => $Order->goalIds]);
 
                 $Order->linkAll('goals', $Goals, $extraColumns, $unlink, $delete);
 

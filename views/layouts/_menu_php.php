@@ -5,20 +5,27 @@ use yii\bootstrap\NavBar;
 
 $menuExtraItems = [];
 if (Yii::$app->user->isGuest) {
-    $menuExtraItems[] = ['label' => 'Signup', 'url' => ['/user/signup'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
-    $menuExtraItems[] = ['label' => 'Login', 'url' => ['/user/login'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
+    $menuExtraItems[] = ['label' => Yii::t('menu', 'Signup'), 'url' => ['/user/signup'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
+    $menuExtraItems[] = ['label' => Yii::t('menu', 'Login'), 'url' => ['/user/login'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];
 } else {
     $menuExtraItems[] = [
-        'label' => 'Logout', // (' . Yii::$app->user->identity->email . ')',
+        'label' => Yii::t('menu', 'Logout'), // (' . Yii::$app->user->identity->email . ')',
         'url' => ['/user/logout'],
         'linkOptions' => ['data-method' => 'post', 'class' => 'btn btn-lg btn-custom']
     ];
 
+    $menuExtraItems[] = ['label' => Yii::t('menu', 'Orders'), 'linkOptions' => ['class' => 'btn btn-lg btn-custom'],
+        'items' => [
+            ['label' => Yii::t('menu', 'My Orders'), 'url' => ['/order/index']],
+            ['label' => Yii::t('menu', 'Create Order'), 'url' => ['/order/create']],
+            ['label' => Yii::t('menu', 'Finance'), 'url' => ['/payment']],
+        ]];
+
     $menuExtraItems[] = ['label' => 'Мои заказы', 'url' => ['/order/index'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom'],
         'items' => [
-            ['label' => 'Список заказов', 'url' => ['/order/index']],
-            ['label' => 'Создать заказ', 'url' => ['/order/create']],
-            ['label' => 'Оплатить заказ', 'url' => ['/payment']],
+            ['label' => Yii::t('menu', 'My Orders'), 'url' => ['/order/index']],
+            ['label' => Yii::t('menu', 'Create Order'), 'url' => ['/order/create']],
+            ['label' => Yii::t('menu', 'Finance'), 'url' => ['/payment']],
         ]];
 
     $menuExtraItems[] = ['label' => 'Оплата услуг', 'url' => ['/payment/index'], 'linkOptions' => ['class' => 'btn btn-lg btn-custom']];

@@ -31,6 +31,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     // Сценарий регистрации
     const SCENARIO_SIGNUP = 'signup';
 
+    const TYPE_EXECUTOR = 0; // Ислолнитель
     const TYPE_CUSTOMER = 1; // Заказчик
 
     const ERROR_USERNAME_INVALID = 'Неверное имя пользователя.';

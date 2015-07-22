@@ -13,6 +13,15 @@ return array(
     'FAQ' => 'ЧаВО',
     'Contacts' => 'Контакты',
     'Signup' => 'Регистрация',
+    'Login' => 'Вход',
+    'Logout' => 'Выход',
 
+    'Orders' => 'Заказы',
+    'My Orders' => 'Список заказов',
+    'Create Order' => 'Создать заказ',
+
+    'Finance' => 'Финансы',
+    'Payment' => 'Оплата',
+    'Transactions' => 'Транзакции',
 
 );

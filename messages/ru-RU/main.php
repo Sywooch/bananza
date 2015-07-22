@@ -8,4 +8,6 @@ return [
     'Create' => 'Создать',
     'Update' => 'Редактировать',
     'Delete' => 'Удалить',
+    'Login' => 'Вход',
+    'Please fill out the following fields to login:' => 'Заполните следующие поля для входа в систему:',
 ];

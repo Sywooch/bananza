@@ -40,10 +40,14 @@ AppAsset::register($this);
 
         </header>
 
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <!-- div class="row" -->
+            <!-- div class="col-md-6 col-md-offset-3" -->
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= $content ?>
+            <!-- /div -->
+        <!--</div> -->
 
         <footer class="footer">
             <p class="pull-left">

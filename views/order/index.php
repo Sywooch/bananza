@@ -36,7 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'creation_date',
             // 'change_date',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{update} {delete}',],
         ],
     ]); ?>
 

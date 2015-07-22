@@ -28,7 +28,7 @@ class Order extends \yii\db\ActiveRecord
 {
 
     public $countryIds = [];
-    public $goal_id;
+    public $goalIds = [];
 
     const GOAL_DOWNLOAD = 1;
     const GOAL_VOTE = 2;
@@ -85,14 +85,14 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vote_mark_id', 'total_users', 'goal_id'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
+            [['vote_mark_id', 'total_users'], 'required'], // , 'creation_date', 'change_date', 'total_price', 'status'
             [['user_id', 'app_id', 'vote_mark_id', 'status', 'total_users', 'period_seconds', 'period_value'], 'integer'],
             [['period_value'], 'default', 'value' => 0],
             [['period_seconds'], 'in', 'range' => ['0', '3600', '86400']],
             [['total_users'], 'number', 'min' => 10],
             [['total_users'], 'default', 'value' => '10'],
             [['total_price'], 'number'],
-            [['user_id', 'creation_date', 'change_date', 'countryIds', 'ref_link', 'description', 'period_seconds', 'period_value'], 'safe'],
+            [['user_id', 'creation_date', 'change_date', 'countryIds', 'goalIds', 'ref_link', 'description', 'period_seconds', 'period_value'], 'safe'],
             [['app_id', 'countries', 'app'], 'safe'],
             [['user_id', 'app_id'], 'unique', 'targetAttribute' => ['user_id', 'app_id'], 'message' => 'The combination of ID Пользователя and ID Приложения has already been taken.']
         ];
@@ -119,6 +119,7 @@ class Order extends \yii\db\ActiveRecord
             'creation_date' => Yii::t('main', 'creation_date'),
             'change_date' => Yii::t('main', 'change_date'),
             'countryIds' => Yii::t('order', 'countryIds'),
+            'goalIds' => Yii::t('order', 'goalIds'),
         ];
     }
 
