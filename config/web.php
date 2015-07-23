@@ -78,6 +78,16 @@ $config = [
 
             ],
         ],
+        'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'viewPath' => '@app/views/email',
+            'constructArgs' => ['localhost', 25],
+            'plugins' => [[
+                'class' => 'Swift_Plugins_ThrottlerPlugin',
+                'constructArgs' => [20],
+                ],
+            ],
+        ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,

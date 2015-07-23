@@ -7,6 +7,7 @@ use yii\web\Controller;
 use app\models\User;
 use yii\helpers\Url;
 use app\models\LoginForm;
+use app\models\ForgotForm;
 
 class UserController extends Controller
 {
@@ -97,5 +98,45 @@ class UserController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionForgotPassword()
+    {
+        $postData = Yii::$app->request->post();
+        $model = new ForgotForm();
+
+        if ( $model->load($postData) && $model->validate() )
+        {
+            $User = User::findOne(['email' => $model->username]);
+
+            if ( !empty($User) )
+            {
+                $User->activation_link = User::generateHash();
+                $User->save();
+
+                // var_dump(Yii::$app->mailer->viewPath); die();
+                Yii::$app->mailer->viewPath = '@app/views';
+                Yii::$app->mailer->compose('email/user-remind-password', ['User' => $User])
+                    ->setFrom(Yii::$app->params['fromEmail'])
+                    ->setTo($User->email)
+                    ->setSubject(Yii::t('user', 'Recover Password') . Yii::$app->params['siteName'])
+                    ->send();
+
+                return $this->render('forgot-password-sent', ['User' => $User]);
+            }
+            /*
+            else
+            {
+                $error = Yii::t('user', 'User with this Email not exist.');
+            }
+            */
+        }
+
+        return $this->render('forgot-password', ['User' => $User, 'model' => $model]);
+    }
+
+    public function actionRecoverPassword($link)
+    {
+
     }
 }

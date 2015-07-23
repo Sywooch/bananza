@@ -180,7 +180,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     // заданной длины. Длина указывается в единственном свойстве метода.
     // Символы, применяемые при генерации, указаны в переменной $chars.
     // По умолчанию, длина соли 32 символа.
-    public function randomSalt($length=32)
+    public static function randomSalt($length=32)
     {
         $chars = "abcdefghijkmnopqrstuvwxyz023456789";
         srand((double)microtime()*1000000);
@@ -195,7 +195,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return $salt;
     }
 
+    public static function generateHash()
+    {
+        return md5(self::randomSalt());
+    }
 
+/*
     public function authenticate()
     {
         $user = User::find('LOWER(email)=?', array(strtolower($this->email)));
@@ -221,7 +226,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         }
         return !$this->errorCode;
     }
-
+*/
     public function getId()
     {
         // return $this->_id;

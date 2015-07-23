@@ -1,12 +1,8 @@
 <?php
 
-use yii\helpers\Html;
-
 use yii\bootstrap\Button;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
-use kartik\select2\Select2;
-use app\models\Order;
 
 
 /* @var $this yii\web\View */

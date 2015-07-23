@@ -1,19 +1,30 @@
 <?php
 use kartik\slider\Slider;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+
+$this->title = Yii::t('finance', 'Payment');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('finance', 'Finance')];
+$this->params['breadcrumbs'][] =  Yii::t('finance', 'Payment');
 ?>
 
-<html>
-<head>
-    <title>Pay</title>
-</head>
-<body>
 
-<!--
+<div class="payment-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+<?php /*
 <script src="//merchant.webmoney.ru/conf/lib/wm-simple-x20.min.js?wmid=261613619335&purse=R101111803389&key=642172351&amount=10.00&desc=%CE%EF%EB%E0%F2%E0+%E7%E0+%F3%F1%EB%F3%E3%E8" id="wm-script"></script>
--->
+*/ ?>
 
-<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="POST">
+<?php $form = ActiveForm::begin(['layout' => 'horizontal', 'action' => 'https://merchant.webmoney.ru/lmi/payment.asp', 'fieldConfig' => [
+    'horizontalCssClasses' => ['wrapper' => 'col-sm-8',]
+]]); ?>
+
+
     <?php
+    // <form action="https://merchant.webmoney.ru/lmi/payment.asp" method="POST">
+
 // With model & without ActiveForm
     echo Slider::widget([
     'name' => 'LMI_PAYMENT_AMOUNT',
@@ -63,5 +74,5 @@ use kartik\slider\Slider;
     </p>
 </form>
 -->
-</body>
-</html>
+    <?php ActiveForm::end(); ?>
+</div>

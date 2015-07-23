@@ -35,7 +35,7 @@ AppAsset::register($this);
             <?php echo $this->render('_menu_php'); ?>
 
             <div>
-                <img class="text-muted" src="<?php Yii::$app->request->baseUrl ?>/img/logo.png">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl . '/img/logo.png', ['class' => 'text-muted']), '/'); ?>
             </div>
 
         </header>

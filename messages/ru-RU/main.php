@@ -9,5 +9,7 @@ return [
     'Update' => 'Редактировать',
     'Delete' => 'Удалить',
     'Login' => 'Вход',
+    'Next' => 'Далее',
+    'On Homepage' => 'На Главную',
     'Please fill out the following fields to login:' => 'Заполните следующие поля для входа в систему:',
 ];

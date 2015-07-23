@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap\Tabs;
+use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
@@ -8,10 +8,7 @@ use yii\bootstrap\Tabs;
  * @var app\models\App $App
  */
 
-?>
-<?php
 
-use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Order */
