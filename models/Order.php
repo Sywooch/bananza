@@ -191,4 +191,9 @@ class Order extends \yii\db\ActiveRecord
         return parent::delete();
     }
 
+    public function afterLoad()
+    {
+
+    }
+
 }

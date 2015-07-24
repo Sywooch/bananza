@@ -72,8 +72,10 @@ class OrderController extends Controller
         $Order = Order::find()->with(['countries', 'app', 'goals'])->where(['id' => $id])->one();
         $Order->countryIds = ArrayHelper::map($Order->countries, 'id', 'id');
         $Order->goalIds = ArrayHelper::map($Order->goals, 'id', 'id');
-
-        var_dump($Order->goalIds);die();
+        if ( !in_array(1, $Order->goalIds) )
+        {
+            $Order->goalIds [] = 1;
+        }
 
         $postData = Yii::$app->request->post();
 
@@ -126,6 +128,10 @@ class OrderController extends Controller
                 // $Order->linkAll('countries', $CountriesInclude, $extraColumns, $unlink, $delete);
                 $Order->linkAll('countries', $CountriesInclude, $extraColumns, $unlink, $delete);
 
+                if ( !in_array(1, $Order->goalIds) )
+                {
+                    $Order->goalIds [] = 1;
+                }
                 $Goals = Goal::findAll(['id' => $Order->goalIds]);
 
                 $Order->linkAll('goals', $Goals, $extraColumns, $unlink, $delete);
@@ -149,6 +155,8 @@ class OrderController extends Controller
 
         // Если пришли данные для сохранения
         $Order = new Order();
+
+        $Order->goalIds [] = 1;
         $App = new App();
         $App->type = App::TYPE_FREE;
         $App->service = App::SERVICE_GOOGLE;

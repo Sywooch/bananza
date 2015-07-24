@@ -145,7 +145,7 @@ class UserController extends Controller
 
         $success = FALSE;
 
-        if ( $model->load($postData) && $model->validate() )
+        if ( !empty($User) && $model->load($postData) && $model->validate() )
         {
             $User->salt = User::randomSalt(6);
             $User->password = User::hashPassword($model->password, $User->salt);

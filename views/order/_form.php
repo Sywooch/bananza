@@ -25,10 +25,10 @@ use yii\helpers\ArrayHelper;
 <?php echo $form->field($Order, 'description')->textarea(); ?>
 <?php // echo $form->field($model, 'uploadFile')->fileInput() ?>
 <?php $countryList = ArrayHelper::map(\app\models\Country::find()->orderBy('id')->all(), 'id', 'name') ?>
-<?php// echo $form->field($Order, 'countries')->checkboxList($countryList, ArrayHelper::map($Order->countries, 'id', 'id')); // CountryIncludeToOrder[] checkboxList?>
+<?php /* echo $form->field($Order, 'countries')->checkboxList($countryList, ArrayHelper::map($Order->countries, 'id', 'id')); // CountryIncludeToOrder[] checkboxList?>
 
 <?php // echo $form->field($Order, 'countryIds')->checkboxList($countryList); // CountryIncludeToOrder[] checkboxList?>
-<?php // echo $form->field($Order, 'countryIds')->hiddenInput(['value' => []])->label(false); ?>
+<?php // echo $form->field($Order, 'countryIds')->hiddenInput(['value' => []])->label(false); */ ?>
 
 <?php echo $form->field($Order, 'total_users')->textInput(['value' => '10']); ?>
 
