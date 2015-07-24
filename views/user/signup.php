@@ -12,13 +12,13 @@
 echo Tabs::widget([
     'items' => [
         [
-            'label' => 'Как Исполнитель',
-            'content' => $this->render('executor_form'),
+            'label' => 'Как Заказчик',
+            'content' => $this->render('customer_form', ['model' => $model]),
             'active' => true
         ],
         [
-            'label' => 'Как Заказчик',
-            'content' => $this->render('customer_form', ['model' => $model]),
+            'label' => 'Как Исполнитель',
+            'content' => $this->render('executor_form'),
             // 'active' => true
         ],
     ],
