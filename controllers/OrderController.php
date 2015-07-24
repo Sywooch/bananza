@@ -73,6 +73,8 @@ class OrderController extends Controller
         $Order->countryIds = ArrayHelper::map($Order->countries, 'id', 'id');
         $Order->goalIds = ArrayHelper::map($Order->goals, 'id', 'id');
 
+        var_dump($Order->goalIds);die();
+
         $postData = Yii::$app->request->post();
 
         if ( !empty($postData) && $this->saveOrder($postData, $Order) )

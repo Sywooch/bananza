@@ -8,6 +8,7 @@ use app\models\User;
 use yii\helpers\Url;
 use app\models\LoginForm;
 use app\models\ForgotForm;
+use app\models\RecoverForm;
 
 class UserController extends Controller
 {
@@ -114,12 +115,12 @@ class UserController extends Controller
                 $User->activation_link = User::generateHash();
                 $User->save();
 
-                // var_dump(Yii::$app->mailer->viewPath); die();
-                Yii::$app->mailer->viewPath = '@app/views';
+
+                // Yii::$app->mailer->viewPath = '@app/views';
                 Yii::$app->mailer->compose('email/user-remind-password', ['User' => $User])
-                    ->setFrom(Yii::$app->params['fromEmail'])
+                    ->setFrom(Yii::$app->mailer->transport->getUsername())
                     ->setTo($User->email)
-                    ->setSubject(Yii::t('user', 'Recover Password') . Yii::$app->params['siteName'])
+                    ->setSubject(Yii::t('user', 'Recover Password') . ' ' . Yii::$app->params['siteName'])
                     ->send();
 
                 return $this->render('forgot-password-sent', ['User' => $User]);
@@ -137,6 +138,22 @@ class UserController extends Controller
 
     public function actionRecoverPassword($link)
     {
+        $User = User::findOne(['activation_link' => $link]);
 
+        $postData = Yii::$app->request->post();
+        $model = new RecoverForm();
+
+        $success = FALSE;
+
+        if ( $model->load($postData) && $model->validate() )
+        {
+            $User->salt = User::randomSalt(6);
+            $User->password = User::hashPassword($model->password, $User->salt);
+            $User->activation_link = '';
+            $User->save();
+            $success = TRUE;
+        }
+
+        return $this->render('recover-password', ['User' => $User, 'model' => $model, 'success' => $success]);
     }
 }

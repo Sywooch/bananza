@@ -171,7 +171,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     // Создание хэша пароля
-    public function hashPassword($password,$salt)
+    public static function hashPassword($password,$salt)
     {
         return md5($salt.$password);
     }

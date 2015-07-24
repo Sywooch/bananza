@@ -10,8 +10,6 @@ class ForgotForm extends Model
 {
     public $username;
 
-    private $_user = false;
-
     /**
      * @inheritdoc
      */
