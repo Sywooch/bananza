@@ -133,7 +133,7 @@ class UserController extends Controller
             */
         }
 
-        return $this->render('forgot-password', ['User' => $User, 'model' => $model]);
+        return $this->render('forgot-password', ['model' => $model]);
     }
 
     public function actionRecoverPassword($link)
